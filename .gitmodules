@@ -1,0 +1,3 @@
+[submodule "prisma/graphql-service"]
+	path = prisma/graphql-service
+	url = git@github.com:shahzrahim/graphql-service.git
