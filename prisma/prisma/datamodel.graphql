@@ -2,7 +2,7 @@
 # CASCADE deleted related
 
 type User {
-  id: ID! @unique
+  id: ID! @unique @id
   name: String!
   email: String! @unique
   posts: [Post!]! @relation(name: "POSTtoUSER", onDelete: CASCADE)
@@ -11,7 +11,7 @@ type User {
 }
 
 type Post {
-  id: ID! @unique
+  id: ID! @unique @id
   title: String!
   body: String!
   published: Boolean!
@@ -20,8 +20,8 @@ type Post {
 }
 
 type Comment {
-    id: ID! @unique
+    id: ID! @unique @id
     text: String!
     author: User! @relation(name: "COMMENTtoUSER", onDelete: SET_NULL)
-    post: Post! [Comment!]! @relation(name: "COMMENTtoPOST", onDelete: SET_NULL)
+    post: Post! @relation(name: "COMMENTtoPOST", onDelete: SET_NULL)
 }
